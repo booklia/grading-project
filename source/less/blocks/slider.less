@@ -1,0 +1,317 @@
+.promo {
+  position: relative;
+}
+.slider {
+  position: relative;
+  overflow: hidden;
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  &__item {
+    flex-shrink: 0;
+    min-height: 656px;
+    &--decaf {
+      background-color: @color-flat-white;
+
+      @media (min-width: @tablet) {
+        background: linear-gradient(
+          180deg,
+          @color-flat-white 77%,
+          transparent 50%
+        );
+      }
+
+      @media (min-width: @desktop) {
+        background: none;
+        background-color: @color-flat-white;
+      }
+    }
+    &--lavender {
+      background-color: @color-lavender-latte;
+
+      @media (min-width: @tablet) {
+        background: linear-gradient(
+          180deg,
+          @color-lavender-latte 77%,
+          transparent 50%
+        );
+      }
+
+      @media (min-width: @desktop) {
+        background: none;
+        background-color: @color-lavender-latte;
+      }
+    }
+    &--espresso {
+      background-color: @color-espresso;
+
+      @media (min-width: @tablet) {
+        background: linear-gradient(
+          180deg,
+          @color-espresso 77%,
+          transparent 50%
+        );
+      }
+
+      @media (min-width: @desktop) {
+        background: none;
+        background-color: @color-espresso;
+      }
+    }
+  }
+  &__item-body {
+    display: grid;
+    gap: 5px;
+    box-sizing: border-box;
+    padding: 15px 15px 60px 15px;
+
+    @media (min-width: @tablet) {
+      padding: 60px 60px 0 80px;
+      gap: 20px;
+    }
+
+    @media (min-width: @desktop) {
+      align-items: center;
+      grid-template-columns: 600px 1fr;
+      gap: 30px;
+      padding: 30px calc(50% - 615px) 84px;
+    }
+  }
+  &__description-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: @desktop) {
+      align-items: start;
+    }
+  }
+  &___item-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  &__arrow {
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    height: 100%;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    background-color: initial;
+    border: none;
+    &--left {
+      left: 0;
+    }
+    &--right {
+      right: 0;
+      transform: scaleX(-1);
+
+      @media (min-width: @tablet) {
+        padding-right: 30px;
+      }
+    }
+    &::after {
+      content: "";
+      width: 30px;
+      height: 20px;
+      margin: auto;
+      background: url("../../img/icons/stack.svg#arrow") no-repeat right 10px
+        center/100%;
+
+      @media (min-width: @tablet) {
+        background: url("../../img/icons/stack.svg#arrow") no-repeat right 2px
+          center/100%;
+      }
+    }
+
+    @media (min-width: @tablet) {
+      width: 80px;
+      height: 77%;
+    }
+
+    @media (min-width: @desktop) {
+      height: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      background-image: linear-gradient(
+        to right,
+        @color-base-white,
+        transparent
+      );
+    }
+
+    &:active {
+      background-image: linear-gradient(
+        to right,
+        @color-primary-opacity,
+        transparent
+      );
+    }
+
+    &:disabled {
+      color: @color-base-grey;
+      background-image: none;
+      cursor: not-allowed;
+    }
+  }
+  &__label {
+    margin: 0 0 5px;
+    color: @color-base-primary;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+
+    @media (min-width: @desktop) {
+      margin: -30px 0 5px;
+      text-align: left;
+    }
+  }
+  &__heading {
+    margin: 0 0 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: 0.02em;
+    padding: 0 20px;
+
+    @media (min-width: @tablet) {
+      font-size: 56px;
+      line-height: 80px;
+      margin-bottom: 16px;
+      padding: 0;
+    }
+  }
+  &__description {
+    margin: 0;
+    padding: 0 5px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+
+    @media (min-width: @tablet) {
+      font-size: 20px;
+      line-height: 32px;
+      padding-left: 17px;
+      padding-right: 11px;
+    }
+
+    @media (min-width: @desktop) {
+      align-items: start;
+      text-align: left;
+      padding-left: 0;
+    }
+  }
+  &__action {
+    margin: 20px 0 0;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: @desktop) {
+      margin: 40px 0 -22px;
+    }
+  }
+  &__old-price {
+    text-decoration: line-through;
+    margin-right: 6px;
+    font-size: 16px;
+    line-height: 2;
+    color: @color-base-primary;
+  }
+  &__price {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+    text-decoration: none;
+    margin-right: 21px;
+  }
+  &__button {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 8px 20px;
+    font-family: inherit;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    text-decoration: none;
+    color: @color-base-white;
+    background-color: @color-base-primary;
+    font-size: 16px;
+    line-height: 1.5;
+
+    &:active {
+      background-color: @color-primary-darker;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: @color-primary-lighter;
+    }
+
+    &:not(.slider__button--disabled):active {
+      background-color: @color-primary-darker;
+    }
+
+    &--disabled {
+      background-color: @color-base-grey;
+      cursor: not-allowed;
+    }
+  }
+  &__bullets {
+    display: none;
+
+    @media (min-width: @desktop) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__item-picture {
+    @media (min-width: @desktop) {
+      order: 0;
+    }
+  }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets {
+  position: absolute;
+  top: 89.6%;
+}
+
+.swiper-pagination-bullet {
+  display: none;
+  border-radius: 0;
+  opacity: 1;
+
+  &:not(.swiper-pagination-bullet-active):hover,
+  &:not(.swiper-pagination-bullet-active):focus {
+    background-color: @color-base-primary;
+    opacity: 0.25;
+  }
+
+  @media (min-width: @desktop) {
+    display: block;
+    content: "";
+    width: 62px;
+    height: 4px;
+    background-color: @color-base-white;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: @color-base-primary;
+  border-radius: 0;
+}

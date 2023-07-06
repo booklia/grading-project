@@ -1,0 +1,236 @@
+.header {
+  position: relative;
+  &__title {
+    display: none;
+    margin: 5px 0 0 20px;
+    width: 130px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+
+    @media (min-width: @desktop) {
+      display: block;
+      margin: 14px 0 0 20px;
+    }
+  }
+  @media (min-width: @tablet) {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0;
+    margin: 0 auto;
+    min-height: 80px;
+  }
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    box-sizing: border-box;
+    min-width: 60px;
+    min-height: 60px;
+    padding: 20px;
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+
+    &::before {
+      width: 16px;
+      height: 16px;
+      background-color: currentColor;
+    }
+
+    @media (min-width: @tablet) {
+      min-height: 80px;
+    }
+
+    &--user {
+      @media (min-width: @desktop) {
+        margin: 0 41px 0 70px;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      color: @color-base-primary;
+    }
+
+    &:active {
+      background-color: @color-base-secondary;
+
+      @media (min-width: @tablet) {
+        color: @color-base-primary;
+      }
+    }
+  }
+  &__controls {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    min-width: 120px;
+    margin: 0 0 0 auto;
+    &--text {
+      display: none;
+
+      @media (min-width: @desktop) {
+        display: block;
+        margin-left: 8px;
+      }
+    }
+    @media (min-width: @tablet) {
+      order: 2;
+      margin: 0;
+    }
+  }
+  &__nav {
+    @media (max-width: @tablet) {
+      order: 3;
+    }
+  }
+  &__logo--image {
+    display: block;
+    align-items: center;
+
+    @media (min-width: @tablet) {
+      padding: 10px 0;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: @tablet) {
+      display: contents;
+    }
+  }
+  &__logo__wrapper {
+    padding: 11px 0 11px 20px;
+
+    @media (min-width: @mobile) {
+      display: flex;
+    }
+
+    @media (min-width: @desktop) {
+      padding: 11px 0;
+    }
+  }
+  &__toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: initial;
+    min-width: 60px;
+    min-height: 60px;
+    padding: 20px;
+    text-align: center;
+    color: inherit;
+    cursor: pointer;
+    border: none;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 1.5px;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      background-color: @color-base-black;
+      box-shadow: 0 5px 0 0 @color-base-black, 0 -5px 0 0 @color-base-black;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 1.5px;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      background-color: @color-base-black;
+    }
+
+    &:hover::before {
+      box-shadow: 0 5px 0 0 @color-base-primary, 0 -5px 0 0 @color-base-primary;
+    }
+
+    &:hover::after {
+      background-color: @color-base-primary;
+    }
+
+    @media (min-width: @tablet) {
+      display: none;
+    }
+
+    &:active {
+      background-color: @color-base-secondary;
+
+      @media (min-width: @tablet) {
+        color: @color-base-primary;
+      }
+    }
+  }
+  @media (min-width: @desktop) {
+    max-width: 1360px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.header--closed .navigation__list {
+  @media (max-width: @mobile) {
+    display: none;
+  }
+}
+
+.header--nojs .header__toggle {
+  @media (max-width: @mobile) {
+    display: none;
+  }
+}
+
+.header--nojs .navigation__list {
+  @media (max-width: @mobile) {
+    display: block;
+    position: relative;
+  }
+}
+
+.header--opened .header__toggle {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 2px;
+    background-color: @color-base-black;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+    box-shadow: none;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    background-color: @color-base-primary;
+  }
+}

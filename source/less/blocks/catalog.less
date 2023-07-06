@@ -1,0 +1,129 @@
+.catalog {
+  background-color: @color-lightest-grey;
+  padding: 50px 20px 44px;
+  &__title {
+    margin: 0 0 6px;
+    text-align: center;
+    color: @color-base-primary;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+  }
+  &__subtitle {
+    margin: 0 0 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.5;
+
+    @media (min-width: @tablet) {
+      font-size: 42px;
+      line-height: 64px;
+      padding-left: 20px;
+    }
+
+    @media (min-width: @desktop) {
+      padding-left: 0;
+    }
+  }
+  &__select {
+    position: relative;
+    padding: 4px 0;
+    flex-shrink: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    font-family: inherit;
+    color: @color-base-primary;
+    background-color: initial;
+    border: none;
+    cursor: pointer;
+
+    @media (min-width: @tablet) {
+      right: -19px;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: @color-primary-opacity;
+    }
+  }
+  &__select-wrapper {
+    margin: 19px 0 17px;
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+    position: relative;
+    &--text {
+      margin: 3px 0 0 0;
+      text-align: right;
+      font-weight: 600;
+      line-height: 1.5;
+
+      @media (min-width: @tablet) {
+        position: relative;
+        right: -18px;
+      }
+    }
+    @media (min-width: @tablet) {
+      margin: 19px 0 29px;
+    }
+
+    @media (min-width: @desktop) {
+      margin: 16px 15px 28px 29px;
+    }
+  }
+  &__container {
+    @media (min-width: @desktop) {
+      max-width: 1440px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+  &__control {
+    text-align: center;
+  }
+  &__wrapper {
+    @media (min-width: @desktop) {
+      display: grid;
+      grid-template-columns: 318px 1fr;
+      gap: 30px;
+      max-width: 1360px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+  @media (min-width: @tablet) {
+    padding: 80px 20px 41px 19px;
+  }
+
+  @media (min-width: @desktop) {
+    padding: 98px 20px 41px 19px;
+  }
+}
+.product-list {
+  margin: 0 0 20px;
+  display: grid;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+  &__item {
+    &:hover,
+    &:focus-within {
+      box-shadow: 3px 6px 15px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+  @media (min-width: @tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 38px;
+    margin-bottom: 55px;
+  }
+
+  @media (min-width: @desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 30px;
+    margin: 26px -1px 28px 4px;
+  }
+}
